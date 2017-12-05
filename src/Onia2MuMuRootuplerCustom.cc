@@ -246,7 +246,7 @@ UInt_t Onia2MuMuRootuplerCustom::getTriggerBits(const edm::Event& iEvent, std::v
    if (triggerResults_handle.isValid()) {
       const edm::TriggerNames & TheTriggerNames = iEvent.triggerNames(*triggerResults_handle);
       for (unsigned int i = 0; i < TestFilterNames_.size(); i++) {
-         for (int version = 1; version < 9; version++) {
+        for (int version = 1; version < 20; version++) { // TODO; check if this is necessary or if wild-carding can be done here
             std::stringstream ss;
             ss << TestFilterNames_[i] << "_v" << version;
             unsigned int bit = TheTriggerNames.triggerIndex(edm::InputTag(ss.str()).label());
